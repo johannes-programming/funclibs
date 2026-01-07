@@ -1,0 +1,1 @@
+recursive-include src/funclibs *.toml
