@@ -19,7 +19,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = []
-description = "funclibs"
+description = "This project provides libraries concerning function."
 keywords = []
 name = "funclibs"
 readme = "README.rst"
@@ -33,3 +33,4 @@ file = "LICENSE.txt"
 Download = "https://pypi.org/project/funclibs/#files"
 Index = "https://pypi.org/project/funclibs/"
 Source = "https://github.com/johannes-programming/funclibs/"
+Website = "https://funclibs.johannes-programming.online/"
