@@ -52,3 +52,7 @@ class Treelike(Copyable):
     @property
     def outer(self: Self) -> Callable:
         return self._outer
+
+    @outer.setter
+    def outer(self: Self, value: Callable) -> None:
+        self._outer = value
