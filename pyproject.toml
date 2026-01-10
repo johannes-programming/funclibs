@@ -18,7 +18,12 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
     "Typing :: Typed",
 ]
-dependencies = []
+dependencies = [
+    "copyable",
+    "identityfunction",
+    "datahold",
+    "setdoc",
+]
 description = "This project provides libraries concerning function."
 keywords = []
 name = "funclibs"
