@@ -65,7 +65,7 @@ class Separable(Copyable):
         return self._kwargs
 
     @property
-    def outer(self) -> Callable:
+    def outer(self: Self) -> Callable:
         return self._outer
 
     @outer.setter
