@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import *
 
-from .OperatorABC import OperatorABC
+from .Treelike import Treelike
 
 __all__ = ["Pointwise"]
 
 
-class Pointwise(OperatorABC):
+class Pointwise(Treelike):
 
     args: list
     kwargs: dict[str, Any]

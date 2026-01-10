@@ -7,10 +7,10 @@ import setdoc
 from copyable import Copyable
 from datarepr import datarepr
 
-__all__ = ["Pointwise"]
+__all__ = ["Treelike"]
 
 
-class OperatorABC(Copyable):
+class Treelike(Copyable):
 
     args: list
     kwargs: dict[str, Any]

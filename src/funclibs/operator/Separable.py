@@ -2,12 +2,12 @@ from __future__ import annotations
 
 from typing import *
 
-from .OperatorABC import OperatorABC
+from .Treelike import Treelike
 
 __all__ = ["Separable"]
 
 
-class Separable(OperatorABC):
+class Separable(Treelike):
 
     args: list[Callable]
     kwargs: dict[str, Callable]
