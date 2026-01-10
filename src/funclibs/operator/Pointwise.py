@@ -17,7 +17,7 @@ class Pointwise(Treelike):
 
     def __call__(self: Self, /, *args: Any, **kwargs: Any) -> Any:
         args_: list
-        kwargs_: dict
+        kwargs_: dict[str, Any]
         x: Any
         y: Any
         args_ = list()
