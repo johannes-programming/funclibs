@@ -8,7 +8,7 @@ __all__ = ["Const"]
 
 class Const(Copyable):
     value: Any
-    __slots__ = ("value",)
+    __slots__ = ("_value",)
 
     def __call__(self: Self, *args: Any, **kwargs: Any) -> Any:
         return self.value
@@ -20,3 +20,11 @@ class Const(Copyable):
     @setdoc.basic
     def copy(self: Self) -> Self:
         return type(self)(self.value)
+
+    @property
+    def value(self: Self) -> Any:
+        return self._value
+
+    @value.setter
+    def value(self: Self, value_: Any) -> None:
+        self._value = value_
