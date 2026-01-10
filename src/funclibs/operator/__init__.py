@@ -1,1 +1,1 @@
-from funclibs.operator import Pointwise, Separable
+from funclibs.operator import Pointwise, Separable, Treelike
