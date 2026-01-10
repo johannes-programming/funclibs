@@ -21,6 +21,7 @@ classifiers = [
 dependencies = [
     "copyable>=0.0.0.dev2,<1",
     "setdoc>=1.2.8,<2",
+    "overloadable",
 ]
 description = "This project provides libraries concerning function."
 keywords = []
