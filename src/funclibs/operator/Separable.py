@@ -2,20 +2,18 @@ from __future__ import annotations
 
 from typing import *
 
-import setdoc
-from copyable import Copyable
-from datarepr import datarepr
+from .OperatorABC import OperatorABC
 
 __all__ = ["Separable"]
 
 
-class Separable(Copyable):
+class Separable(OperatorABC):
 
     args: list[Callable]
     kwargs: dict[str, Callable]
     outer: Callable
 
-    __slots__ = ("_args", "_kwargs", "_outer")
+    __slots__ = ()
 
     def __call__(self: Self, /, *args: Any, **kwargs: Any) -> Any:
         args_: list
@@ -35,39 +33,3 @@ class Separable(Copyable):
             else:
                 kwargs_[x] = y
         return self.outer(*args_, **kwargs_)
-
-    @setdoc.basic
-    def __init__(
-        self: Self,
-        outer: Callable,
-        /,
-        *args: Callable,
-        **kwargs: Callable,
-    ) -> None:
-        self._outer = outer
-        self._args = list(args)
-        self._kwargs = kwargs
-
-    @setdoc.basic
-    def __repr__(self: Self) -> str:
-        return datarepr(type(self).__name__, *self.args, **self.kwargs)
-
-    @property
-    def args(self: Self) -> list[Callable]:
-        return self._args
-
-    @setdoc.basic
-    def copy(self: Self) -> Self:
-        return type(self)(self.outer, *self.args, **self.kwargs)
-
-    @property
-    def kwargs(self: Self) -> dict[str, Callable]:
-        return self._kwargs
-
-    @property
-    def outer(self: Self) -> Callable:
-        return self._outer
-
-    @outer.setter
-    def outer(self: Self, value: Callable) -> None:
-        self._outer = value
