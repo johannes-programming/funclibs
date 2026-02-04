@@ -1,26 +1,42 @@
 from __future__ import annotations
 
-from abc import abstractmethod
 from typing import *
 
 import setdoc
-from copyable import Copyable
+from abc.Callable import Callable
 from datarepr import datarepr
 
 __all__ = ["Treelike"]
 
 
-class Treelike(Copyable):
+class Treelike(Callable):
 
-    args: list
-    kwargs: dict[str, Any]
+    args: list[Callable]
+    kwargs: dict[str, Callable]
     outer: Callable
 
     __slots__ = ("_args", "_kwargs", "_outer")
-
-    @abstractmethod
-    def __call__(self: Self, /, *args: Any, **kwargs: Any) -> Any: ...
-
+    
+    @setdoc.basic
+    def __cmp__(self:Self, other:Any) -> Optional[int]:
+        x:tuple
+        y:tuple
+        if type(self) is not type(other):
+            return
+        x = (self.outer, self.args, self.kwargs)
+        y = (other.outer, other.args, other.kwargs)
+        try:
+            if (x<=y)and(y<=x):
+                return 0
+            if (not x<=y)and(y<=x):
+                return 1
+            if (x<=y)and(not y<=x):
+                return -1
+        except Exception:
+            if x==y:
+                return 0
+        return float("nan")
+        
     @setdoc.basic
     def __init__(
         self: Self,

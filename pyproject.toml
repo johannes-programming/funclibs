@@ -23,6 +23,7 @@ dependencies = [
     "datarepr>=1.1,<2",
     "frozendict>=2.4.6,<3",
     "setdoc>=1.2.8,<2",
+    "cmp3",
 ]
 description = "This project provides libraries concerning function."
 keywords = []

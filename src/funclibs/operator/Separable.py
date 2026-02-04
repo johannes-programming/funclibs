@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import *
 
-from .Treelike import Treelike
+from ..abc.Treelike import Treelike
 
 __all__ = ["Separable"]
 

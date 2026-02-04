@@ -2,15 +2,15 @@ from __future__ import annotations
 
 from typing import *
 
-from .Treelike import Treelike
+from funclibs.abc.Treelike import Treelike
 
 __all__ = ["Pointwise"]
 
 
 class Pointwise(Treelike):
 
-    args: list
-    kwargs: dict[str, Any]
+    args: list[Callable]
+    kwargs: dict[str, Callable]
     outer: Callable
 
     __slots__ = ()
